@@ -1,4 +1,4 @@
-# 💸 Lambda Cost Analyzer
+## 💸 Lambda Cost Analyzer
 Lambda Cost Analyzer is a simple lightweight script that can be ran on a client or inside a CI/CD environment. You can define a lambda function name and choose a bundle of memory sizes to test speed and cost. The output will compare and breakdown the costs per memorysize for your function, optionally you can output as JSON for CI/CD. Prices are pulled from AWS API.
 
 **ℹ️ During tests Lambda Cost Analyzer will modify your memory size and revert it back to default**
