@@ -181,7 +181,7 @@ async function analyze(suite, price) {
 
     output.push({
       "Memory Size (mb)": Number(memorySize),
-      "Avg. Billable Secs (ms)": avg_billable,
+      "Avg. Billable Duration (ms)": avg_billable,
       "Cost ($)": Number(Math.max(0, totalCost).toFixed(2)),
       "Raw Cost ($)": Math.max(0, totalCost)
     });
