@@ -1,11 +1,17 @@
 # 💸 Lambda Cost Analyzer
-Lambda Cost Analyzer is a simple lightweight script that can be ran on a client or inside a CI/CD environment. You can define a lambda function name and choose a bundle of memory sizes to test speed and cost. The output will compare and breakdown the costs per memorysize for your function, optionally you can output as JSON for CI/CD. Prices are pulled from AWS API
+Lambda Cost Analyzer is a simple lightweight script that can be ran on a client or inside a CI/CD environment. You can define a lambda function name and choose a bundle of memory sizes to test speed and cost. The output will compare and breakdown the costs per memorysize for your function, optionally you can output as JSON for CI/CD. Prices are pulled from AWS API.
+
+
+![Demo](https://raw.githubusercontent.com/icarusmiles/lambda-cost-analyzer/master/demo/render.gif)
+
+
+**ℹ️ During tests Lambda Cost Analyzer will modify your memory size and revert it back to default**
 
 #### 💾 Installation
 
 **🖥️ Requirements**
 * Node v6+
-* IAM Role with `lambda:GetFunctionConfiguration`, `lambda:InvokeFunction`, and `pricing:GetProducts`
+* IAM Role with `lambda:GetFunctionConfiguration`, `lambda:InvokeFunction`, `lambda:UpdateFunctionConfiguration`, and `pricing:GetProducts`
 
 **📜 Install**
 1. `git clone https://github.com/icarusmiles/lambda-cost-analyzer.git`
@@ -23,11 +29,10 @@ node index.js --function <name>
 
 The below example will warmup your function four times prior to testing, followed by five tests per memory size for our "low" suite (see below). Additionally final cost calculates will take inaccount of the free tier and base it off of 30k requests. Lastly the function will output a output.json for external consumption.
 ```
-node index.js --function helloworld \
---freetier \
+node index.js --function aperture-dev-yoworld \
 --requests 30000 \
---warmups 4 \
---tests 5 \
+--warmups 3 \
+--tests 3 \
 --suite low \
 --out
 ```
@@ -49,13 +54,13 @@ node index.js --function helloworld \
 
 A "suite" is a collection of memory sizes to perform tests against. Memory sizes are adjusted by Lambda Cost Analyzer using the AWS SDK.
 
-* **general**: 128mb, 256mb, 512mb, 1024mb, 1536mb, 2048mb, 2560mb, 3008
+* **general**: 128mb, 256mb, 512mb, 1024mb, 1536mb, 2048mb, 2560mb, 3008mb
 * **lowest** 128mb, 256mb, 320mb, 384mb, 448mb
-* **low** 512mb, 576mb, 640mb, 704mb, 768mb, 832mb, 896,
-* **medium** 960mb, 1024mb, 1088mb, 1152mb, 1216mb, 1280mb, 1344,
-* **high** 1408mb, 1472mb, 1536mb, 1600mb, 1644mb, 1728mb, 1792,
-* **higher** 1856mb, 1920mb, 1984mb, 2048mb, 2112mb, 2176mb, 2240,
-* **highest** 2304mb, 2368mb, 2432mb, 2496mb, 2560mb, 2624mb, 2688mb, 2752mb, 2816mb, 2880mb, 2944mb, 3008
+* **low** 512mb, 576mb, 640mb, 704mb, 768mb, 832mb, 896mb
+* **medium** 960mb, 1024mb, 1088mb, 1152mb, 1216mb, 1280mb, 1344mb
+* **high** 1408mb, 1472mb, 1536mb, 1600mb, 1644mb, 1728mb, 1792mb
+* **higher** 1856mb, 1920mb, 1984mb, 2048mb, 2112mb, 2176mb, 2240mb
+* **highest** 2304mb, 2368mb, 2432mb, 2496mb, 2560mb, 2624mb, 2688mb, 2752mb, 2816mb, 2880mb, 2944mb, 3008mb
 
 ## License
 
