@@ -183,7 +183,7 @@ async function analyze(suite, price) {
       "Memory Size (mb)": Number(memorySize),
       "Avg. Billable Duration (ms)": avg_billable,
       "Cost ($)": Number(Math.max(0, totalCost).toFixed(2)),
-      "Raw Cost ($)": Math.max(0, totalCost)
+      "Raw Cost ($)": Number(Math.max(0, totalCost).toFixed(9))
     });
 
     if (saveJson) {
