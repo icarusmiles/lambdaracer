@@ -33,8 +33,8 @@ The below example will warmup your function four times prior to testing, followe
 ```
 node index.js --function helloworld \
 --requests 30000 \
---warmups 3 \
---tests 3 \
+--warmups 4 \
+--tests 5 \
 --suite low \
 --out
 ```
@@ -43,8 +43,8 @@ node index.js --function helloworld \
 
 | Flag            | Description                                                                     | Required | Default Value
 | --------------- | ------------------------------------------------------------------------------- | -------- | ------------ |
-| -f, --function  | Input                   | Yes                                                    | N/A |
-| --freetier      | In price calculations includes AWS Free tier                                     | No | `false` |
+| -f, --function  | Function name to perform memory resizing and testing                   | Yes                                                    | N/A |
+| --freetier      | In price calculations include AWS Free tier                                     | No | `false` |
 | -r, --requests  | Number of requests to calculate final pricing                                    | No  | `5000`  |
 | -w, --warmups   | Number of warmup runs before performance testing (Recommend minimum of 2)        | No  | `3`  |
 | -t, --tests     | Number of test performance runs to calculate average speed (ms)                  | No  | `4`  |
