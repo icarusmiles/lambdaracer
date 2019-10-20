@@ -66,6 +66,14 @@ A "suite" is a collection of memory sizes to perform tests against. Memory sizes
 * **highest** 2304mb, 2368mb, 2432mb, 2496mb, 2560mb, 2624mb, 2688mb, 2752mb, 2816mb, 2880mb, 2944mb, 3008mb
 * **full** Every possible memory size (Warning: this may take some time)
 
+## File Output (Optional)
+If you're using `-o` or `--out`, the following will be saved as `output.json`:
+```
+[
+  {"memory":128, "billableTime":100, "cost":0 },
+  {"memory":256, "billableTime":100, "cost":0 }
+]
+```
 
 ## License
 
