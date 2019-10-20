@@ -14,7 +14,25 @@ Lambda Cost Analyzer is a simple lightweight script that can be ran on a client 
 
 #### ⌨️ Usage
 
-`npm run start -- --function <name>`
+**Basic Usage**
+```
+node index.js --function <name>
+```
+
+**Advanced Usage**
+
+The below example will warmup your function four times prior to testing, followed by five tests per memory size for our "low" suite (see below). Additionally final cost calculates will take inaccount of the free tier and base it off of 30k requests. Lastly the function will output a output.json for external consumption.
+```
+node index.js --function helloworld \
+--freetier \
+--requests 30000 \
+--warmups 4 \
+--tests 5 \
+--suite low \
+--out
+```
+
+**Command-line Flags**
 
 | Flag            | Description | Required | Default Value
 | --------------- | ----------------------- | ----------------------- |
@@ -26,6 +44,18 @@ Lambda Cost Analyzer is a simple lightweight script that can be ran on a client 
 | -s, --suite     | The bundle "name" of memory sizes to test against  | No | `general`  |
 | -o, --out       | Output json file of final results, `output.json`  | No  | `false`  |
 | -d, --debug     | Adds verbose logging, please use if making an issue  | No | `false`
+
+### 🐏 Memory Size Suites
+
+A "suite" is a collection of memory sizes to perform tests against. Memory sizes are adjusted by Lambda Cost Analyzer using the AWS SDK.
+
+* **general**: 128mb, 256mb, 512mb, 1024mb, 1536mb, 2048mb, 2560mb, 3008
+* **lowest** 128mb, 256mb, 320mb, 384mb, 448mb
+* **low** 512mb, 576mb, 640mb, 704mb, 768mb, 832mb, 896,
+* **medium** 960mb, 1024mb, 1088mb, 1152mb, 1216mb, 1280mb, 1344,
+* **high** 1408mb, 1472mb, 1536mb, 1600mb, 1644mb, 1728mb, 1792,
+* **higher** 1856mb, 1920mb, 1984mb, 2048mb, 2112mb, 2176mb, 2240,
+* **highest** 2304mb, 2368mb, 2432mb, 2496mb, 2560mb, 2624mb, 2688mb, 2752mb, 2816mb, 2880mb, 2944mb, 3008
 
 ## License
 
