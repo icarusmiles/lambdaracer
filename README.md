@@ -1,9 +1,7 @@
-## 💸 Lambda Cost Analyzer
-Lambda Cost Analyzer is a simple lightweight script that can be ran on a client or inside a CI/CD environment. You can define a lambda function name and choose a bundle of memory sizes to test speed and cost. The output will compare and breakdown the costs per memorysize for your function, optionally you can output as JSON for CI/CD. Prices are pulled from AWS API.
+## 🏎️ LambdaRacer
+LambdaRacer is a simple lightweight script that can be ran on a client or inside a CI/CD environment. You can define a lambda function name and choose a bundle of memory sizes to test speed and cost. The output will compare and breakdown the costs per memory size for your function, optionally you can output as JSON for CI/CD. Prices are pulled from AWS API. **During tests LambdaRacer will modify your memory size and revert it back to default**
 
-**ℹ️ During tests Lambda Cost Analyzer will modify your memory size and revert it back to default**
-
-![Demo](https://raw.githubusercontent.com/icarusmiles/lambda-cost-analyzer/master/demo/render.gif)
+![Demo](https://raw.githubusercontent.com/icarusmiles/lambdaracer/master/demo/render.gif)
 
 
 
@@ -16,8 +14,8 @@ Lambda Cost Analyzer is a simple lightweight script that can be ran on a client 
 * IAM Role with `lambda:GetFunctionConfiguration`, `lambda:InvokeFunction`, `lambda:UpdateFunctionConfiguration`, and `pricing:GetProducts`
 
 **📜 Install**
-1. `git clone https://github.com/icarusmiles/lambda-cost-analyzer.git`
-2. `cd lambda-cost-analyzer`
+1. `git clone https://github.com/icarusmiles/lambdaracer.git`
+2. `cd lambdaracer`
 3. `npm install`
 
 #### ⌨️ Usage
@@ -56,7 +54,7 @@ node index.js --function helloworld \
 
 ## 🐏 Memory Size Suites
 
-A "suite" is a collection of memory sizes to perform tests against. Memory sizes are adjusted by Lambda Cost Analyzer using the AWS SDK. Use the `-s` or `--suite` flag, e.g. `--suite medium`
+A "suite" is a collection of memory sizes to perform tests against. Memory sizes are adjusted by LambdaRacer using the AWS SDK. Use the `-s` or `--suite` flag, e.g. `--suite medium`
 
 | Suite            | Memory Sizes |
 | --------------- | --------------- |
@@ -83,4 +81,4 @@ If you're using `-o` or `--out`, the following will be saved as `output.json`:
 
 *Open source license*
 
-If you are creating an open source application under a license compatible with the GNU GPL license v3, you may use Lambda Cost Analyzer under the terms of the GPLv3. You can read more about this license [here](https://www.gnu.org/licenses/quick-guide-gplv3.en.html).
+If you are creating an open source application under a license compatible with the GNU GPL license v3, you may use LambdaRacer under the terms of the GPLv3. You can read more about this license [here](https://www.gnu.org/licenses/quick-guide-gplv3.en.html).
