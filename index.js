@@ -18,6 +18,7 @@ commander
   .option('-t, --tests <number>')
   .option('-s, --suite <name>')
   .option('-o, --out')
+  .option('-p, --payload')
   .parse(process.argv);
 
 /* Params */
@@ -26,13 +27,21 @@ const functionName = commander.function;
 const warmup_count = commander.warmups ? commander.warmups : 3;
 const test_count = commander.tests ? commander.tests : 4;
 const requests = commander.requests ? commander.requests : 5000;
-const suiteTier = commander.suite ? commander.suite : "general"
+const payload = commander.payload;
+const suiteTier = commander.suite ? commander.suite : "general";
 const saveJson = commander.out;
 var originalMemory;
 var tests = {};
 var output = [];
 var json = [];
+var payloadJson = {}
 
+
+if (payload) {
+  let payloadFile = fs.readFileSync('payload.json');
+  payloadJson = JSON.parse(payloadFile);
+  console.log(colors.yellow("Payload found!"), "loaded...")
+}
 
 /* Suite of tests to run */
 testSuites = {
@@ -82,7 +91,7 @@ async function runTest(functionName, warmup) {
     FunctionName: commander.function,
     InvocationType: 'RequestResponse',
     LogType: "Tail",
-    // Payload: '{ "name" : "Alex" }'
+    Payload: JSON.stringify(payloadJson)
   };
 
   try {

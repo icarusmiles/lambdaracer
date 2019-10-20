@@ -51,6 +51,7 @@ node index.js --function helloworld \
 | -s, --suite     | The bundle "name" of memory sizes to test against (see below)                               | No | `general`  |
 | -o, --out       | Output json file of final results, `output.json`                                 | No  | `false`  |
 | -d, --debug     | Adds verbose logging, please use if making an issue                              | No | `false` |
+| -p, --payload   | If toggled `payload.json` will be used during invocation    | No   | `{}`   |
 
 
 ## 🐏 Memory Size Suites
