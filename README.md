@@ -41,17 +41,17 @@ node index.js --function helloworld \
 
 **Command-line Flags**
 
-| Flag            | Description                                                                     | Required | Default Value
-| --------------- | ------------------------------------------------------------------------------- | -------- | ------------ |
-| -f, --function  | Function name to perform memory resizing and testing                   | Yes                                                    | N/A |
-| --freetier      | In price calculations include AWS Free tier                                     | No | `false` |
-| -r, --requests  | Number of requests to calculate final pricing                                    | No  | `5000`  |
-| -w, --warmups   | Number of warmup runs before performance testing (Recommend minimum of 2)        | No  | `3`  |
-| -t, --tests     | Number of test performance runs to calculate average speed (ms)                  | No  | `4`  |
-| -s, --suite     | The bundle "name" of memory sizes to test against (see below)                               | No | `general`  |
-| -o, --out       | Output json file of final results, `output.json`                                 | No  | `false`  |
-| -d, --debug     | Adds verbose logging, please use if making an issue                              | No | `false` |
-| -p, --payload   | If toggled `payload.json` will be used during invocation    | No   | `{}`   |
+| Flag            | Input | Description                                                                     | Required | Default Value
+| --------------- | --------------- | ------------------------------------------------------------------------------- | -------- | ------------ |
+| -f, --function  | String | Function name to perform memory resizing and testing                   | Yes                                                    | N/A |
+| --freetier      | N/A | In price calculations include AWS Free tier                                     | No | `false` |
+| -r, --requests  | Numeric |Number of requests to calculate final pricing                                    | No  | `5000`  |
+| -w, --warmups   | Numeric | Number of warmup runs before performance testing (Recommend minimum of 2)        | No  | `3`  |
+| -t, --tests     | Numeric | Number of test performance runs to calculate average speed (ms)                  | No  | `4`  |
+| -s, --suite     | String | The bundle "name" of memory sizes to test against (see below)                               | No | `general`  |
+| -o, --out       | N/A | Output json file of final results, `output.json`                                 | No  | `false`  |
+| -d, --debug     | N/A | Adds verbose logging, please use if making an issue                              | No | `false` |
+| -p, --payload   | N/A | If toggled `payload.json` will be used during invocation    | No   | `{}`   |
 
 
 ## 🐏 Memory Size Suites
