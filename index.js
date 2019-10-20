@@ -4,6 +4,7 @@ AWS.config.region = commander.region ? commander.region : 'us-east-1';
 const colors = require('colors');
 const lambda = new AWS.Lambda();
 const pricing = new AWS.Pricing({ apiVersion: '2017-10-15' });
+const fs = require('fs');
 
 
 /* Grab flags from CLI */
@@ -30,6 +31,7 @@ const saveJson = commander.out;
 var originalMemory;
 var tests = {};
 var output = [];
+var json = [];
 
 
 /* Suite of tests to run */
@@ -170,9 +172,24 @@ async function analyze(suite, price) {
       "Cost ($)": Number(Math.max(0, totalCost).toFixed(6)),
       "Raw Cost ($)": Math.max(0, totalCost)
     });
+
+    if (saveJson) {
+      json.push({
+        "memory": Number(memorySize),
+        "billableTime": avg_billable,
+        "cost": Math.max(0, totalCost)
+      })
+    }
   }
   console.log("\n" + colors.white(`Cost analysis based on ${requests} requests`))
   console.table(output);
+  if (saveJson) {
+    fs.writeFile("output.json", JSON.stringify(json), function(err) {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
 }
 
 /*********************************************/

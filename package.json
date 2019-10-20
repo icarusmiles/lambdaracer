@@ -4,9 +4,10 @@
   "description": "Simple lightweight utility, enter function name and run a suite of cost measuring tests",
   "main": "index.js",
   "dependencies": {
-    "commander": "^3.0.2",
+    "aws-sdk": "^2.553.0",
     "colors": "^1.4.0",
-    "aws-sdk": "^2.553.0"
+    "commander": "^3.0.2",
+    "fs": "0.0.1-security"
   },
   "devDependencies": {},
   "scripts": {
