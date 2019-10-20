@@ -7,13 +7,12 @@ LambdaRacer is a simple lightweight script that can be ran on a client or inside
 
 
 
-#### 💾 Installation
 
-**🖥️ Requirements**
+#### 🖥️ Requirements
 * Node v6+
 * IAM Role with `lambda:GetFunctionConfiguration`, `lambda:InvokeFunction`, `lambda:UpdateFunctionConfiguration`, and `pricing:GetProducts`
 
-**📜 Install**
+#### 📜 Install**
 1. `git clone https://github.com/icarusmiles/lambdaracer.git`
 2. `cd lambdaracer`
 3. `npm install`
