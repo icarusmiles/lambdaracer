@@ -31,7 +31,7 @@ node index.js --function <name>
 
 The below example will warmup your function four times prior to testing, followed by five tests per memory size for our "low" suite (see below). Additionally final cost calculates will take inaccount of the free tier and base it off of 30k requests. Lastly the function will output a output.json for external consumption.
 ```
-node index.js --function aperture-dev-yoworld \
+node index.js --function helloworld \
 --requests 30000 \
 --warmups 3 \
 --tests 3 \
