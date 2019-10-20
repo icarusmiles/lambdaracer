@@ -58,14 +58,17 @@ node index.js --function helloworld \
 
 A "suite" is a collection of memory sizes to perform tests against. Memory sizes are adjusted by Lambda Cost Analyzer using the AWS SDK. Use the `-s` or `--suite` flag, e.g. `--suite medium`
 
-* **general**: 128mb, 256mb, 512mb, 1024mb, 1536mb, 2048mb, 2560mb, 3008mb
-* **lowest** 128mb, 256mb, 320mb, 384mb, 448mb
-* **low** 512mb, 576mb, 640mb, 704mb, 768mb, 832mb, 896mb
-* **medium** 960mb, 1024mb, 1088mb, 1152mb, 1216mb, 1280mb, 1344mb
-* **high** 1408mb, 1472mb, 1536mb, 1600mb, 1644mb, 1728mb, 1792mb
-* **higher** 1856mb, 1920mb, 1984mb, 2048mb, 2112mb, 2176mb, 2240mb
-* **highest** 2304mb, 2368mb, 2432mb, 2496mb, 2560mb, 2624mb, 2688mb, 2752mb, 2816mb, 2880mb, 2944mb, 3008mb
-* **full** Every possible memory size (Warning: this may take some time)
+| Suite            | Memory Sizes |
+| --------------- | --------------- |
+| general  | 128mb, 256mb, 512mb, 1024mb, 1536mb, 2048mb, 2560mb, 3008mb |
+| lowest      | 128mb, 256mb, 320mb, 384mb, 448mb |
+| low  | 512mb, 576mb, 640mb, 704mb, 768mb, 832mb, 896mb  |
+| medium   | 960mb, 1024mb, 1088mb, 1152mb, 1216mb, 1280mb, 1344mb  |
+| high     | 1408mb, 1472mb, 1536mb, 1600mb, 1644mb, 1728mb, 1792mb  |
+| higher    | 1856mb, 1920mb, 1984mb, 2048mb, 2112mb, 2176mb, 2240mb  |
+| highest       | 2304mb, 2368mb, 2432mb, 2496mb, 2560mb, 2624mb, 2688mb, 2752mb, 2816mb, 2880mb, 2944mb, 3008mb  |
+| full    | Every possible memory size (Warning: this may take some time) |
+
 
 ## File Output (Optional)
 If you're using `-o` or `--out`, the following will be saved as `output.json`:
