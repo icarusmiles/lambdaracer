@@ -27,14 +27,14 @@ node index.js --function <name>
 
 **Advanced Usage**
 
-The below example will warmup your function four times prior to testing, followed by five tests per memory size for our "low" suite (see below). Additionally final cost calculates will take inaccount of the free tier and base it off of 30k requests. Lastly the function will output a output.json for external consumption.
+The below example will warmup your function four times prior to testing, followed by five tests per memory size for our "low" suite (see below). Additionally final cost calculations will take inaccount of the free tier and base it off of 30k requests.
 ```
 node index.js --function helloworld \
+--freetier \
 --requests 30000 \
 --warmups 4 \
 --tests 5 \
---suite low \
---out
+--suite low
 ```
 
 **Command-line Flags**
