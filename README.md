@@ -52,7 +52,8 @@ node index.js --function aperture-dev-yoworld \
 | -o, --out       | Output json file of final results, `output.json`                                 | No  | `false`  |
 | -d, --debug     | Adds verbose logging, please use if making an issue                              | No | `false` |
 
-### 🐏 Memory Size Suites
+
+## 🐏 Memory Size Suites
 
 A "suite" is a collection of memory sizes to perform tests against. Memory sizes are adjusted by Lambda Cost Analyzer using the AWS SDK.
 
@@ -63,6 +64,8 @@ A "suite" is a collection of memory sizes to perform tests against. Memory sizes
 * **high** 1408mb, 1472mb, 1536mb, 1600mb, 1644mb, 1728mb, 1792mb
 * **higher** 1856mb, 1920mb, 1984mb, 2048mb, 2112mb, 2176mb, 2240mb
 * **highest** 2304mb, 2368mb, 2432mb, 2496mb, 2560mb, 2624mb, 2688mb, 2752mb, 2816mb, 2880mb, 2944mb, 3008mb
+* **full** Every possible memory size (Warning: this may take some time)
+
 
 ## License
 
