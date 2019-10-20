@@ -1,9 +1,5 @@
 const commander = require('commander');
-const AWS = require('aws-sdk');
-AWS.config.region = commander.region ? commander.region : 'us-east-1';
 const colors = require('colors');
-const lambda = new AWS.Lambda();
-const pricing = new AWS.Pricing({ apiVersion: '2017-10-15' });
 const fs = require('fs');
 
 
@@ -19,7 +15,16 @@ commander
   .option('-s, --suite <name>')
   .option('-o, --out')
   .option('-p, --payload')
+  .option('--region <name>')
   .parse(process.argv);
+
+
+
+/* AWS */
+const AWS = require('aws-sdk');
+AWS.config.region = commander.region ? commander.region : 'us-east-1';
+const lambda = new AWS.Lambda();
+const pricing = new AWS.Pricing({ apiVersion: '2017-10-15' });
 
 /* Params */
 const debug = commander.debug; /* If -d, enable verbose logging */
@@ -176,9 +181,8 @@ async function analyze(suite, price) {
 
     output.push({
       "Memory Size (mb)": Number(memorySize),
-      "Average Billable Speed (ms)": avg,
-      "Calculated Billable Speed (ms)": avg_billable,
-      "Cost ($)": Number(Math.max(0, totalCost).toFixed(6)),
+      "Avg. Billable Secs (ms)": avg_billable,
+      "Cost ($)": Number(Math.max(0, totalCost).toFixed(2)),
       "Raw Cost ($)": Math.max(0, totalCost)
     });
 
