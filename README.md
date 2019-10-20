@@ -48,14 +48,14 @@ node index.js --function helloworld \
 | -r, --requests  | Number of requests to calculate final pricing                                    | No  | `5000`  |
 | -w, --warmups   | Number of warmup runs before performance testing (Recommend minimum of 2)        | No  | `3`  |
 | -t, --tests     | Number of test performance runs to calculate average speed (ms)                  | No  | `4`  |
-| -s, --suite     | The bundle "name" of memory sizes to test against                                | No | `general`  |
+| -s, --suite     | The bundle "name" of memory sizes to test against (see below)                               | No | `general`  |
 | -o, --out       | Output json file of final results, `output.json`                                 | No  | `false`  |
 | -d, --debug     | Adds verbose logging, please use if making an issue                              | No | `false` |
 
 
 ## 🐏 Memory Size Suites
 
-A "suite" is a collection of memory sizes to perform tests against. Memory sizes are adjusted by Lambda Cost Analyzer using the AWS SDK.
+A "suite" is a collection of memory sizes to perform tests against. Memory sizes are adjusted by Lambda Cost Analyzer using the AWS SDK. Use the `-s` or `--suite` flag, e.g. `--suite medium`
 
 * **general**: 128mb, 256mb, 512mb, 1024mb, 1536mb, 2048mb, 2560mb, 3008mb
 * **lowest** 128mb, 256mb, 320mb, 384mb, 448mb
