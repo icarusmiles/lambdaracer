@@ -12,20 +12,29 @@ commander
   .option('-f, --function <name>')
   .option('-d, --debug')
   .option('--freetier')
+  .option('-r, --requests <number>')
+  .option('-w, --warmups <number>')
+  .option('-t, --tests <number>')
+  .option('-s, --suite <name>')
+  .option('-o, --out')
   .parse(process.argv);
 
 /* Params */
 const debug = commander.debug; /* If -d, enable verbose logging */
 const functionName = commander.function;
-const warmup_count = 2;
-const test_count = 2;
+const warmup_count = commander.warmups ? commander.warmups : 3;
+const test_count = commander.tests ? commander.tests : 4;
+const requests = commander.requests ? commander.requests : 5000;
+const suiteTier = commander.suite ? commander.suite : "general"
+const saveJson = commander.out;
 var originalMemory;
 var tests = {};
 var output = [];
-var requests = 50000;
+
 
 /* Suite of tests to run */
 testSuites = {
+  "general": ["128", "256", "512", "1024", "1536", "2048", "2560", "3008"],
   "test": ["128", "256"],
   "lowest": ["128", "256", "320", "384", "448"],
   "low": ["512", "576", "640", "704", "768", "832", "896"],
@@ -35,6 +44,12 @@ testSuites = {
   "highest": ["2304", "2368", "2432", "2496", "2560", "2624", "2688", "2752", "2816", "2880", "2944", "3008"]
 }
 
+testSuites["full"] = testSuites["lowest"]
+  .concat(testSuites["low"],
+    testSuites["medium"],
+    testSuites["high"],
+    testSuites["higher"],
+    testSuites["highest"])
 
 /******************************************/
 /********* Grab function details  *********/
@@ -152,12 +167,12 @@ async function analyze(suite, price) {
       "Memory Size (mb)": Number(memorySize),
       "Average Billable Speed (ms)": avg,
       "Calculated Billable Speed (ms)": avg_billable,
-      "Cost ($)": Math.max(0, totalCost)
+      "Cost ($)": Number(Math.max(0, totalCost).toFixed(6)),
+      "Raw Cost ($)": Math.max(0, totalCost)
     });
   }
   console.log("\n" + colors.white(`Cost analysis based on ${requests} requests`))
   console.table(output);
-  console.log(price);
 }
 
 /*********************************************/
@@ -184,7 +199,7 @@ async function getLambdaPrice() {
   if (commander.function) {
     let func = await loadFunction(commander.function);
     originalMemory = func.MemorySize; /* Remember original memory, update to that later */
-    let suite = testSuites["test"];
+    let suite = testSuites[suiteTier];
 
     for (let i = 0; i < suite.length; i++) {
       tests[suite[i]] = []
