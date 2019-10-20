@@ -1,0 +1,223 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/milescollier/git/personal/lambda-cost-analyzer
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 138
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 25
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 300
+    content: "node index.js --function helloworld \\\r\n> --requests 30000 \\\r\n> --warmups 3 \\\r\n> --tests 3 \\\r\n> --suite low \\\r\n> --out"
+  - delay: 302
+    content: "\r\n"
+  - delay: 747
+    content: "\e[33mFunction Loaded:\e[39m helloworld\r\n\e[33mCurrent Configuruation:\e[39m\r\n┌─────────┬────────────────────────┐\r\n│ (index) │         Values         │\r\n├─────────┼────────────────────────┤\r\n│  Name   │ \e[32m     'helloworld'\e[39m      │\r\n│ Runtime │      \e[32m'nodejs10.x'\e[39m      │\r\n│ Timeout │          \e[32m'6s'\e[39m          │\r\n│ Memory  │        \e[32m'256 MB'\e[39m        │\r\n└─────────┴────────────────────────┘\r\n\r\n------------------------------------------------\r\n\r\n"
+  - delay: 292
+    content: "\U0001F40F  Updated RAM to 512 MB\r\n\r\n\U0001F525 Running warmup tests for accurate non-cold start readings!\r\n"
+  - delay: 699
+    content: "\e[32mLambda Success!\e[39m Completed in 139.15ms, billed for 200ms @ 512 MB\r\n"
+  - delay: 281
+    content: "\e[32mLambda Success!\e[39m Completed in 5.26ms, billed for 100ms @ 512 MB\r\n"
+  - delay: 291
+    content: "\e[32mLambda Success!\e[39m Completed in 10.22ms, billed for 100ms @ 512 MB\r\n\r\n\r\n\U0001F3CE️   Performance Test Started!\r\n"
+  - delay: 214
+    content: "\e[32mLambda Success!\e[39m Completed in 3.54ms, billed for 100ms @ 512 MB\r\n"
+  - delay: 216
+    content: "\e[32mLambda Success!\e[39m Completed in 3.85ms, billed for 100ms @ 512 MB\r\n"
+  - delay: 213
+    content: "\e[32mLambda Success!\e[39m Completed in 3.69ms, billed for 100ms @ 512 MB\r\n\r\n------------------------------------------------\r\n\r\n"
+  - delay: 322
+    content: "\U0001F40F  Updated RAM to 576 MB\r\n\r\n\U0001F525 Running warmup tests for accurate non-cold start readings!\r\n"
+  - delay: 701
+    content: "\e[32mLambda Success!\e[39m Completed in 92.01ms, billed for 100ms @ 576 MB\r\n"
+  - delay: 296
+    content: "\e[32mLambda Success!\e[39m Completed in 22.34ms, billed for 100ms @ 576 MB\r\n"
+  - delay: 345
+    content: "\e[32mLambda Success!\e[39m Completed in 14.14ms, billed for 100ms @ 576 MB\r\n\r\n\r\n\U0001F3CE️   Performance Test Started!\r\n"
+  - delay: 215
+    content: "\e[32mLambda Success!\e[39m Completed in 3.54ms, billed for 100ms @ 576 MB\r\n"
+  - delay: 215
+    content: "\e[32mLambda Success!\e[39m Completed in 3.52ms, billed for 100ms @ 576 MB\r\n"
+  - delay: 278
+    content: "\e[32mLambda Success!\e[39m Completed in 3.62ms, billed for 100ms @ 576 MB\r\n\r\n------------------------------------------------\r\n\r\n"
+  - delay: 316
+    content: "\U0001F40F  Updated RAM to 640 MB\r\n\r\n\U0001F525 Running warmup tests for accurate non-cold start readings!\r\n"
+  - delay: 820
+    content: "\e[32mLambda Success!\e[39m Completed in 93.04ms, billed for 100ms @ 640 MB\r\n"
+  - delay: 313
+    content: "\e[32mLambda Success!\e[39m Completed in 36.58ms, billed for 100ms @ 640 MB\r\n"
+  - delay: 280
+    content: "\e[32mLambda Success!\e[39m Completed in 5.81ms, billed for 100ms @ 640 MB\r\n\r\n\r\n\U0001F3CE️   Performance Test Started!\r\n"
+  - delay: 225
+    content: "\e[32mLambda Success!\e[39m Completed in 3.78ms, billed for 100ms @ 640 MB\r\n"
+  - delay: 211
+    content: "\e[32mLambda Success!\e[39m Completed in 3.58ms, billed for 100ms @ 640 MB\r\n"
+  - delay: 279
+    content: "\e[32mLambda Success!\e[39m Completed in 3.71ms, billed for 100ms @ 640 MB\r\n\r\n------------------------------------------------\r\n\r\n"
+  - delay: 329
+    content: "\U0001F40F  Updated RAM to 704 MB\r\n\r\n\U0001F525 Running warmup tests for accurate non-cold start readings!\r\n"
+  - delay: 661
+    content: "\e[32mLambda Success!\e[39m Completed in 84.09ms, billed for 100ms @ 704 MB\r\n"
+  - delay: 288
+    content: "\e[32mLambda Success!\e[39m Completed in 5.01ms, billed for 100ms @ 704 MB\r\n"
+  - delay: 280
+    content: "\e[32mLambda Success!\e[39m Completed in 4.55ms, billed for 100ms @ 704 MB\r\n\r\n\r\n\U0001F3CE️   Performance Test Started!\r\n"
+  - delay: 222
+    content: "\e[32mLambda Success!\e[39m Completed in 14.56ms, billed for 100ms @ 704 MB\r\n"
+  - delay: 212
+    content: "\e[32mLambda Success!\e[39m Completed in 3.70ms, billed for 100ms @ 704 MB\r\n"
+  - delay: 216
+    content: "\e[32mLambda Success!\e[39m Completed in 3.80ms, billed for 100ms @ 704 MB\r\n\r\n------------------------------------------------\r\n\r\n"
+  - delay: 275
+    content: "\U0001F40F  Updated RAM to 768 MB\r\n\r\n\U0001F525 Running warmup tests for accurate non-cold start readings!\r\n"
+  - delay: 711
+    content: "\e[32mLambda Success!\e[39m Completed in 76.48ms, billed for 100ms @ 768 MB\r\n"
+  - delay: 369
+    content: "\e[32mLambda Success!\e[39m Completed in 4.67ms, billed for 100ms @ 768 MB\r\n"
+  - delay: 243
+    content: "\e[32mLambda Success!\e[39m Completed in 6.41ms, billed for 100ms @ 768 MB\r\n\r\n\r\n\U0001F3CE️   Performance Test Started!\r\n"
+  - delay: 221
+    content: "\e[32mLambda Success!\e[39m Completed in 4.00ms, billed for 100ms @ 768 MB\r\n"
+  - delay: 217
+    content: "\e[32mLambda Success!\e[39m Completed in 3.67ms, billed for 100ms @ 768 MB\r\n"
+  - delay: 215
+    content: "\e[32mLambda Success!\e[39m Completed in 3.56ms, billed for 100ms @ 768 MB\r\n\r\n------------------------------------------------\r\n\r\n"
+  - delay: 368
+    content: "\U0001F40F  Updated RAM to 832 MB\r\n\r\n\U0001F525 Running warmup tests for accurate non-cold start readings!\r\n"
+  - delay: 823
+    content: "\e[32mLambda Success!\e[39m Completed in 86.08ms, billed for 100ms @ 832 MB\r\n"
+  - delay: 216
+    content: "\e[32mLambda Success!\e[39m Completed in 6.37ms, billed for 100ms @ 832 MB\r\n"
+  - delay: 369
+    content: "\e[32mLambda Success!\e[39m Completed in 8.49ms, billed for 100ms @ 832 MB\r\n\r\n\r\n\U0001F3CE️   Performance Test Started!\r\n"
+  - delay: 236
+    content: "\e[32mLambda Success!\e[39m Completed in 4.50ms, billed for 100ms @ 832 MB\r\n"
+  - delay: 215
+    content: "\e[32mLambda Success!\e[39m Completed in 4.23ms, billed for 100ms @ 832 MB\r\n"
+  - delay: 369
+    content: "\e[32mLambda Success!\e[39m Completed in 3.76ms, billed for 100ms @ 832 MB\r\n\r\n------------------------------------------------\r\n\r\n"
+  - delay: 370
+    content: "\U0001F40F  Updated RAM to 896 MB\r\n\r\n\U0001F525 Running warmup tests for accurate non-cold start readings!\r\n"
+  - delay: 682
+    content: "\e[32mLambda Success!\e[39m Completed in 69.47ms, billed for 100ms @ 896 MB\r\n"
+  - delay: 372
+    content: "\e[32mLambda Success!\e[39m Completed in 6.19ms, billed for 100ms @ 896 MB\r\n"
+  - delay: 245
+    content: "\e[32mLambda Success!\e[39m Completed in 6.38ms, billed for 100ms @ 896 MB\r\n\r\n\r\n\U0001F3CE️   Performance Test Started!\r\n"
+  - delay: 373
+    content: "\e[32mLambda Success!\e[39m Completed in 3.71ms, billed for 100ms @ 896 MB\r\n"
+  - delay: 209
+    content: "\e[32mLambda Success!\e[39m Completed in 3.73ms, billed for 100ms @ 896 MB\r\n"
+  - delay: 210
+    content: "\e[32mLambda Success!\e[39m Completed in 3.55ms, billed for 100ms @ 896 MB\r\n\r\n------------------------------------------------\r\n\r\n"
+  - delay: 256
+    content: "\U0001F40F  Updated RAM to 256 MB\r\n"
+  - delay: 320
+    content: "\r\n\e[37mCost analysis based on 30000 requests\e[39m\r\n┌─────────┬──────────────────┬─────────────────────────────┬────────────────────────────────┬──────────┬──────────────────────┐\r\n│ (index) │ Memory Size (mb) │ Average Billable Speed (ms) │ Calculated Billable Speed (ms) │ Cost ($) │     Raw Cost ($)     │\r\n├─────────┼──────────────────┼─────────────────────────────┼────────────────────────────────┼──────────┼──────────────────────┤\r\n│    0    │       \e[33m512\e[39m        │             \e[33m100\e[39m             │              \e[33m100\e[39m               │  \e[33m0.025\e[39m   │ \e[33m0.025000050000000003\e[39m │\r\n│    1    │       \e[33m576\e[39m        │             \e[33m100\e[39m             │              \e[33m100\e[39m               │ \e[33m0.028125\e[39m │ \e[33m0.028125056250000002\e[39m │\r\n│    2    │       \e[33m640\e[39m        │             \e[33m100\e[39m             │              \e[33m100\e[39m               │ \e[33m0.03125\e[39m  │     \e[33m0.0312500625\e[39m     │\r\n│    3    │       \e[33m704\e[39m        │             \e[33m100\e[39m             │              \e[33m100\e[39m               │ \e[33m0.034375\e[39m │    \e[33m0.03437506875\e[39m     │\r\n│    4    │       \e[33m768\e[39m        │             \e[33m100\e[39m             │              \e[33m100\e[39m               │  \e[33m0.0375\e[39m  │     \e[33m0.037500075\e[39m      │\r\n│    5    │       \e[33m832\e[39m        │             \e[33m100\e[39m             │              \e[33m100\e[39m               │ \e[33m0.040625\e[39m │    \e[33m0.04062508125\e[39m     │\r\n│    6    │       \e[33m896\e[39m        │             \e[33m100\e[39m             │              \e[33m100\e[39m               │ \e[33m0.04375\e[39m  │     \e[33m0.0437500875\e[39m     │\r\n└─────────┴──────────────────┴─────────────────────────────┴────────────────────────────────┴──────────┴──────────────────────┘\r\n"
+  - delay: 3000
+    content: "\r\n"
